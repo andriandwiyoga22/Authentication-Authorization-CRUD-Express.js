@@ -39,13 +39,13 @@ export const login = async (req, res) => {
     const user = await User.findOne({ username });
 
     if (!user) {
-        req.flash('error', 'Username tidak ditemukan');
+        req.flash('error', 'Username not found');
         return res.redirect('/login');
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        req.flash('error', 'Password salah');
+        req.flash('error', 'Wrong password');
         return res.redirect('/login');
     }
 

@@ -16,12 +16,12 @@
                 <li>
                     <div style="display: flex; gap: 5px; padding: 5px 0;">
                         <%= user.username %>
-                            <form action="/admin/editUser/<%= user._id %>" method="GET">
+                            <form action="/admin/editUser/<%= user._id %>?_method=PUT" method="POST">
                                 <button type="submit">
                                     Edit
                                 </button>
                             </form>
-                            <form action="/admin/delete/<%= user._id %>" method="POST">
+                            <form action="/admin/delete/<%= user._id %>?_method=DELETE" method="POST">
                                 <button type="submit" onclick="return confirm('Yakin mau hapus user ini?')">
                                     Delete
                                 </button>

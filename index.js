@@ -5,14 +5,17 @@ import session from 'express-session';
 import authRoutes from './src/routes/authRoute.js';
 import adminRoutes from './src/routes/adminRoute.js';
 import flash from 'connect-flash';
+import methodOverride from 'method-override';
+
 
 dotenv.config();
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.log(err));
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.log(err));
 
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());

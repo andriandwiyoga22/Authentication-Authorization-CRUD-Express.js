@@ -10,8 +10,8 @@ import { adminAuth } from '../middlewares/adminMiddleware.js';
 const router = express.Router();
 
 router.get('/', adminAuth, adminPage);
-router.get('/editUser/:id', adminAuth, getEditUser);
+router.put('/editUser/:id', adminAuth, getEditUser);
 router.post('/editUser/:id', adminAuth, editUser);
-router.post('/delete/:id', adminAuth, deleteUser);
+router.delete('/delete/:id', adminAuth, deleteUser);
 
 export default router;
