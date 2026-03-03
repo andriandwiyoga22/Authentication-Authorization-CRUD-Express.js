@@ -2,8 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
-import authRoutes from './routes/authRoute.js';
-import adminRoutes from './routes/adminRoute.js';
+import authRoutes from './src/routes/authRoute.js';
+import adminRoutes from './src/routes/adminRoute.js';
 import flash from 'connect-flash';
 
 dotenv.config();
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', './src/views');
 
 // Routes
 app.use('/', authRoutes);
