@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <h1>Register User/Admin</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <% if (error.length> 0) { %>
+            <div style="color:red;">
+                <%= error %>
+            </div>
+            <% } %>
+            <p style="opacity: 0.5;">There is only one admin register.</p>
+                <a href="/login">Login</a>
+    </div>
+</body>
+
+</html>

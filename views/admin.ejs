@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <h1>Welcome to my admin website</h1>
+        <h3>available users :</h3>
+        <ul>
+            <% users.forEach(user=> { %>
+                <li>
+                    <div style="display: flex; gap: 5px; padding: 5px 0;">
+                        <%= user.username %>
+                            <form action="/admin/editUser/<%= user._id %>" method="GET">
+                                <button type="submit">
+                                    Edit
+                                </button>
+                            </form>
+                            <form action="/admin/delete/<%= user._id %>" method="POST">
+                                <button type="submit" onclick="return confirm('Yakin mau hapus user ini?')">
+                                    Delete
+                                </button>
+                            </form>
+                    </div>
+                </li>
+                <% }) %>
+        </ul>
+
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+</body>
+
+</html>
